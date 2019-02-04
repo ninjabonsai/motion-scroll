@@ -31,16 +31,16 @@ MotionScroll.scroll( {
 ```
 ### Config defaults
 ```javascript
-    MotionScroll.scroll( {
-        element: document.documentElement,
-        axis: 'y',
-        scrollTo: 0, // number or dom element
-        speed: 2000, // speed in pixels per second
-        easing: null, // if no easing function is provided animation will be linear
-        callBack: null,
-        delay: 0, // in seconds
-        force: false, // prevent mousewheel interaction from cancelling scroll
-        minScrollTime: 0, // in seconds
-        maxScrollTime: 10, // in seconds
-    } );
+MotionScroll.scroll( {
+    element: document.documentElement,
+    axis: 'y',
+    scrollTo: 0, // number or dom element
+    speed: 2000, // speed in pixels per second
+    easing: null, // if no easing function is provided animation will be linear
+    callBack: null,
+    delay: 0, // in seconds
+    force: false, // prevent mousewheel interaction from cancelling scroll
+    minScrollTime: 0, // in seconds
+    maxScrollTime: 10, // in seconds
+} );
 ```
