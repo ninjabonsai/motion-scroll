@@ -29,7 +29,7 @@ MotionScroll.scroll( {
     element: document.querySelector( '#bar' ),
 } );
 ```
-## Config defaults
+### Config defaults
 ```javascript
     MotionScroll.scroll( {
         element: document.documentElement,
