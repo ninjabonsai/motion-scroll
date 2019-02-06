@@ -2,8 +2,10 @@
 scroll to a position or an element with easing
 ## Installation
 ```
-npm install motion-scroll
+npm install motion-scroll es6-easing
 ```
+es6 easing documentation can be found here..  
+https://github.com/ninjabonsai/es6-easing
 ## Basic usage
 ### scroll to top of page
 ```javascript
