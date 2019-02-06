@@ -34,7 +34,5 @@
         "eslint": "^5.12.1",
         "rollup": "^1.1.2"
     },
-    "dependencies": {
-        "es6-easing": "^1.0.1"
-    }
+    "dependencies": {}
 }
