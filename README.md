@@ -10,13 +10,13 @@ https://github.com/ninjabonsai/es6-easing
 ### scroll to top of page
 ```javascript
 import MotionScroll from 'motion-scroll';
-import { easeOutExpo } from 'es6-easing';
+import { easeInQuadOutExpo } from 'es6-easing';
 
 // scrolls to the top of the page at 2000px per second easing out
 MotionScroll.scroll( {
     scrollTo: 0,
     speed: 2000,
-    easing: easeOutExpo,
+    easing: easeInQuadOutExpo,
 } );
 ```
 ### scroll to a child element's position
