@@ -62,7 +62,7 @@ const MotionScroll = {
         window.setTimeout( () => {
             // call it once to get started
             tick();
-        }, delay / 1000 );
+        }, delay * 1000 );
 
         function cancelScroll() {
             scrollCancelled = true;
