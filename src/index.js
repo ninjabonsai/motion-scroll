@@ -1,7 +1,7 @@
 const MotionScroll = {
     scroll( config = {} ) {
         let {
-            element = document.documentElement,
+            element = window,
             axis = 'y',
             scrollTo = 0, // number or dom element
             speed = 2000, // speed in pixels per second
@@ -12,19 +12,19 @@ const MotionScroll = {
             minScrollTime = 0, // in seconds
             maxScrollTime = 10, // in seconds
         } = config;
-        
+
         const isYAxis = axis === 'y';
         const dir = isYAxis ? 'top' : 'left';
-        
+
         scrollTo = typeof scrollTo === 'number'
             ? scrollTo
             : scrollTo.getBoundingClientRect()[ dir ] - element.getBoundingClientRect()[ dir ] + element[ `scroll${ dir[ 0 ].toUpperCase() + dir.slice( 1 ) }` ];
-        
+
         let scrollCancelled = false;
-        
-        const scrollPositions = [ element.scrollLeft, element.scrollTop ];
-        const [ scrollFrom, altAxisPos ] = isYAxis ? scrollPositions.reverse() : scrollPositions;
-                
+
+        const scrollPositions = element === window ? [element.scrollX, element.scrollY] : [element.scrollLeft, element.scrollTop];
+        const [scrollFrom, altAxisPos] = isYAxis ? scrollPositions.reverse() : scrollPositions;
+
         let currentTime = 0;
 
         const time = Math.max( minScrollTime, Math.min( Math.abs( scrollFrom - scrollTo ) / speed, maxScrollTime ) );
@@ -35,18 +35,18 @@ const MotionScroll = {
 
             const pos = currentTime / time; // values from 0 to 1
             const easingPos = easing !== null ? easing( pos ) : pos; // altered pos value
-            
+
             const finished = pos >= 1;
-            
+
             const scrollPos = [
                 altAxisPos,
                 finished
                     ? scrollTo
                     : scrollFrom + ( ( scrollTo - scrollFrom ) * easingPos ),
             ];
-            
+
             const [ scrollX, scrollY ] = isYAxis ? scrollPos : scrollPos.reverse();
-            
+
             element.scrollTo( scrollX, scrollY );
 
             if ( finished ) {
